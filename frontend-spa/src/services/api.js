@@ -6,8 +6,20 @@ export function setRouter(r) {
   router = r
 }
 
+/**
+ * GANTI INI SESUAI BACKEND HOSTING KAMU
+ * contoh:
+ * https://uas-web2-api.vercel.app/api
+ * https://domainkamu.com/api
+ * https://backend-kamu.000webhostapp.com/api
+ */
+const API_BASE_URL = 'http://localhost:8080/api'
+
 const api = axios.create({
-  baseURL: 'http://localhost:8080/api',
+  baseURL: API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json'
+  }
 })
 
 api.interceptors.request.use(
@@ -29,12 +41,14 @@ api.interceptors.response.use(
       alert('Sesi login telah berakhir. Silakan login kembali.')
       localStorage.removeItem('token')
       localStorage.removeItem('isLoggedIn')
+
       if (router) {
         router.push('/login')
       } else {
         window.location.replace('/login')
       }
     }
+
     return Promise.reject(error)
   }
 )

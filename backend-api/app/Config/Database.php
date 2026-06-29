@@ -27,9 +27,11 @@ class Database extends Config
     public array $default = [
         'DSN'          => '',
         'hostname'     => 'localhost',
-        'username'     => '',
+        'port'         => 3306,
+        'unix_socket'  => '/opt/lampp/var/mysql/mysql.sock',
+        'username'     => 'root',
         'password'     => '',
-        'database'     => '',
+        'database'     => 'inventory',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
