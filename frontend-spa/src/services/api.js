@@ -13,7 +13,7 @@ export function setRouter(r) {
  * https://domainkamu.com/api
  * https://backend-kamu.000webhostapp.com/api
  */
-const API_BASE_URL = 'http://localhost:8080/api'
+const API_BASE_URL = '/api'
 
 const api = axios.create({
   baseURL: API_BASE_URL,
